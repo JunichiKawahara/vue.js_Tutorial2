@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <title>Vue.js App</title>
+        <link href="main.css" rel="stylesheet">
+    </head>
+    <body>
+        <div id="app">
+            <h1>テンプレートにおける条件分岐</h1>
+            <div v-if="ok">v-if条件による描画</div>
+            <div v-show="ok">v-show条件による表示</div>
+            <button v-on:click="ok=!ok">切り替え</button>
+
+            <h2>templateタグによるv-ifグループ化</h2>
+            <template v-if="ok">
+                <header>タイトル</header>
+                <div>コンテンツ</div>
+            </template>
+
+            <h2>v-else-if およびv-elseによるグループ化</h2>
+            <div v-if="type === 'A'" key="div_type_A">
+                typeはA
+            </div>
+            <div v-else-if="type === 'B'" key="div_type_B">
+                typeはB
+            </div>
+            <div v-else key="div_type_C">
+                すべての条件を満たさなかった
+            </div>
+            <button v-on:click="type='A'">type A</button>
+            <button v-on:click="type='B'">type B</button>
+            <button v-on:click="type='C'">type C</button>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.5/lodash.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios@0.17.1/dist/axios.min.js"></script>
+        <script src="main.js"></script>
+    </body>
+</html>
