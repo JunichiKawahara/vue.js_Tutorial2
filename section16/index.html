@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <title>Vue.js App</title>
+        <link href="main.css" rel="stylesheet">
+    </head>
+    <body>
+        <div id="app">
+            <h1>算出プロパティで処理を含むデータを作成する</h1>
+            <h2>算出プロパティの使い方</h2>
+            <p>{{ width }} の半分は {{ halfWidth }}</p>
+            <button v-on:click="appendLog">ログ出力</button>
+            
+            <h2>算出プロパティを組み合わせて使用する</h2>
+            <p>X: {{ halfPoint.x }}</p>
+            <p>Y: {{ halfPoint.y }}</p>
+
+            <h2>ゲッターとセッター</h2>
+            <input v-model.number="width">{{ width }}<br>
+            <input v-model.number="halfWidth">{{ halfWidth }}
+
+            <h2>算出プロパティのキャッシュ機能</h2>
+            <p>算出プロパティはリアクティブな依存データに基づき結果をキャッシュする。</p>
+            <p>キャッシュを再構築する鳥がになるのは、<strong>リアクティブなデータのみ</strong></p>
+            <h3>算出プロパティでMath.random()を繰り返し表示する</h3>
+            <ol>
+                <li>{{ computedData }}</li>
+                <li>{{ computedData }}</li>
+                <li>{{ computedData }}</li>
+            </ol>
+            <h3>メソッド呼び出しでMath.random()を繰り返し表示する</h3>
+            <ol>
+                <li>{{ methodsData() }}</li>
+                <li>{{ methodsData() }}</li>
+                <li>{{ methodsData() }}</li>
+            </ol>
+
+            <h2>リストの絞り込みに利用する</h2>
+            <p>キャッシュ機能によって、算出プロパティはもとのデータに変更があるまで何度使用しても関数内の処理は一度しか行われない。そのため、複雑な処理に向いている。</p>
+            <p>この特性を活かし、リストから「○円以下」の商品を検索して「○件のみ」表示させる機能を、算出プロパティを使用して実装する。</p>
+            <input v-model.number="budget"> 円以下に絞り込む
+            <input v-model.number="limit"> 件を表示
+            <button v-on:click="order=!order">ソート切り替え</button>
+            <p>{{ matched.length }} 件中 {{ limited.length }} 件を表示中</p>
+            <ul>
+                <li v-for="item in limited" v-bind:key="item.id">
+                    {{ item.name }} {{ item.price }}円
+                </li>
+            </ul>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.5/lodash.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios@0.17.1/dist/axios.min.js"></script>
+        <script src="main.js"></script>
+    </body>
+</html>
