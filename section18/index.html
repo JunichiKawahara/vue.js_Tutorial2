@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <title>Vue.js App</title>
+        <link href="main.css" rel="stylesheet">
+    </head>
+    <body>
+        <div id="app">
+            <h1>フィルタでテキストの変換処理を行う</h1>
+            <h2>フィルタの使い方</h2>
+            <p>{{ price | localeNum }}円</p>
+
+            <h2>複数のフィルタをつなげて使用する</h2>
+            <p>180度は、{{ 180 | radian | round }} ラジアンです。</p>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.5/lodash.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios@0.17.1/dist/axios.min.js"></script>
+        <script src="main.js"></script>
+    </body>
+</html>
