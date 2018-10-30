@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <title>Vue.js App</title>
+        <link href="main.css" rel="stylesheet">
+    </head>
+    <body>
+        <div id="app">
+            <h1>ウォッチャでデータを監視して処理を自動化する</h1>
+            <h2>ウォッチャの使い方</h2>
+            <p>testString = <span>{{ testString }}</span></p>
+            <p><input type="text" v-model="test01"></p>
+
+            <h2>インスタンスメソッドでの登録</h2>
+            <p><input type="text" v-model="value"></p>
+
+            <h2>実行頻度の制御</h2>
+            <p>Lodashが必要</p>
+            <p><input type="text" v-model="textValue"></p>
+
+            <h2>複数の値を監視する</h2>
+            <p>インスタンスメソッドを使い、監視対象を関数にして登録する</p>
+            <p>width: <input type="text" v-model="width"></p>
+            <p>height: <input type="text" v-model="height"></p>
+            <p>area = {{ area }}</p>
+
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.5/lodash.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios@0.17.1/dist/axios.min.js"></script>
+        <script src="main.js"></script>
+    </body>
+</html>
