@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <title>Vue.js App</title>
+        <link href="main.css" rel="stylesheet">
+    </head>
+    <body>
+        <div id="app">
+            <h1>nextTickで更新後のDOMにアクセスする</h1>
+            <h2>更新後のDOMの高さを取得する</h2>
+            <p>可変のリストを囲む要素の高さを取得したい場合、リストの数が変化しても画面上の実際の位置や高さはリアルなDOMにアクセスしてみないと調べることができない。</p>
+            <p>nextTickでこの問題を解決することができる。</p>
+
+            <button v-on:click="list.push(list.length+1)">追加</button>
+            <ul ref="list">
+                <li v-for="item in list">{{ item }}</li>
+            </ul>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.5/lodash.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios@0.17.1/dist/axios.min.js"></script>
+        <script src="main.js"></script>
+    </body>
+</html>
