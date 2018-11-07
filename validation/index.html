@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <title>バリデーションのテスト</title>
+    </head>
+    <body>
+        <div id="app">
+<form
+  id="app"
+  v-on:submit="checkForm"
+  action="/"
+  method="post"
+  novalidate="true">
+
+  <p v-if="errors.length">
+    <b>Please correct the following error(s):</b>
+    <ul>
+      <li v-for="error in errors">{{ error }}</li>
+    </ul>
+  </p>
+
+  <p>
+    <label for="name">Name</label>
+    <input
+      id="name"
+      v-model="name"
+      type="text"
+      name="name"
+    >
+  </p>
+
+  <p>
+    <label for="email">Email</label>
+    <input
+        id="email"
+        v-model="email"
+        type="email"
+        name="email">
+  </p>
+
+  <p>
+    <label for="age">Age</label>
+    <input
+      id="age"
+      v-model="age"
+      type="number"
+      name="age"
+      min="0">
+  </p>
+
+  <p>
+    <label for="movie">Favorite Movie</label>
+    <select
+      id="movie"
+      v-model="movie"
+      name="movie"
+    >
+      <option>Star Wars</option>
+      <option>Vanilla Sky</option>
+      <option>Atomic Blonde</option>
+    </select>
+  </p>
+
+  <p>
+    <input
+      type="submit"
+      value="Submit"
+    >
+  </p>
+
+</form>
+        </div>        
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.5/lodash.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios@0.17.1/dist/axios.min.js"></script>
+        <script src="main.js"></script>
+    </body>
+</html>
