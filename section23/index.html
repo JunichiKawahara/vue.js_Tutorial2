@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <title>Vue.js App</title>
+        <link href="main.css" rel="stylesheet">
+    </head>
+    <body>
+        <div id="app">
+            <h1>コンポーネント間の通信</h1>
+             <h2>親子コンポーネント</h2>
+             <p>「comp-child」はルートの子コンポーネント</p>
+            <comp-child></comp-child> 
+             
+            <h2>「comp-child」は「my-component」の子コンポーネント</h2>
+            <my-component></my-component>
+
+            <h2>親から子への通信</h2>
+            <p>親コンポーネントのテンプレートで子コンポーネントを使用する時、属性（プロパティ）としてコンポーネントにデータを持たせることができる。</p>
+            <comp-child2 val="これは子A"></comp-child2>
+            <comp-child2 val="これは子B"></comp-child2>
+
+            <h2>コンポーネントにリアクティブなデータを渡す</h2>
+            <p>データバインディングを使えば、親コンポーネントが持っているデータを子コンポーネントに渡すこともできる。</p>
+            <comp-child3 v-bind:val="message" class="item"></comp-child3>
+            <button v-on:click="message = 'Hello World!'">messageを変更する</button>
+
+            <h2>コンポーネントをリストレンダリングする</h2>
+            <p>コンポーネントに対してv-forディレクティブを使用することもできる。次の例では、nameとhpプロパティを受け取るコンポーネントを使用する。</p>
+            <ol>
+                <comp-child4 v-for="item in list"
+                    v-bind:key="item.id"
+                    v-bind:name="item.name"
+                    v-bind:hp="item.hp"></comp-child>
+            </ol>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.5/lodash.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios@0.17.1/dist/axios.min.js"></script>
+        <script src="main.js"></script>
+    </body>
+</html>
